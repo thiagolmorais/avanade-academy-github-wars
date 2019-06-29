@@ -138,10 +138,10 @@ table {
 /* end reset */
 html,body{
   height:100%;
+  background: #636e72;
  }
 .container {
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -155,7 +155,6 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 30%;
 }
 
 header .logo {
@@ -171,7 +170,6 @@ header .title {
 }
 .battle-container {
   width: 100%;
-  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
