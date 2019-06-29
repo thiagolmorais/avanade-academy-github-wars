@@ -1,0 +1,330 @@
+/* reset css */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* end reset */
+html,body{
+  height:100%;
+ }
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  background: #636e72;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30%;
+}
+
+header .logo {
+  margin-top: 3%;
+}
+
+header .title {
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 4rem;
+  line-height: 4.5rem;
+  color: #FFF;
+  margin-top: 2%;
+}
+.battle-container {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  position: relative;
+}
+.box-container {
+  -webkit-box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.15);
+  box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.15);
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  width: 35%;
+  height: 500px;
+  
+}
+.box-container.is-flipped {
+  transform: rotateY(180deg);
+}
+.box-fighter {
+  border-radius: 20px;
+  background: #00b894;;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.box-fighter.red {
+  background: #ff7675;
+}
+
+.fight-button {
+  width: 90%;
+  background: #FFF;
+  color: #636e72;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 2.5rem;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: .3s all;
+}
+.fight-button:hover {
+  transform: scale(1.1);
+}
+.box-fighter .input-battle {
+  padding: 3% 2%;
+  width: 80%;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+  font-family: 'Rubik Mono One', sans-serif;
+  transition: .3s all;
+}
+.box-fighter .input-battle:focus {
+  border-color: #636e72;
+}
+.action {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.action img {
+  width: 60%;
+}
+
+.card__face--back {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  transform: rotateY(180deg);
+  background: #2980b9;
+}
+.card__face--back img {
+  width: 30%;
+}
+.card__face--back .trofel {
+  position: absolute;
+  top: 0;
+  top: -5%;
+  right: -5%;
+}
+.card__face--back .trofel img {
+  width: 20%;;
+  float: right;
+}
+.card__face--back .table-info {
+  border-collapse: collapse;
+  width: 90%;
+  color: #FFF;
+  font-family: 'Rubik Mono One', sans-serif;
+}
+
+.card__face--back .table-info td, .card__face--back .table-info th {
+  border: 1px solid #FFF;
+  padding: 8px;
+}
+
+
+.card__face--back .table-info tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.card__face--back .table-info th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  font-family: 'Rubik Mono One', sans-serif;
+}
+.total-text, .total-text span {
+  font-size: 1.4rem;
+  color: #FFF;
+  font-family: 'Rubik Mono One', sans-serif;
+}
+@media(max-width: 768px) {
+  .container {
+    justify-content: flex-start;
+  }
+  header {
+    height: auto;
+    flex-direction: row;
+  }
+  header .logo {
+    width: 10%;
+  }
+  header .title {
+    font-size: 1.5rem;
+  }
+
+  .battle-container {
+    flex-direction: column;
+  }
+  .box-container {
+    width: 90%;
+  }
+}

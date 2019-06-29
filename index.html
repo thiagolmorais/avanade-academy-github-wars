@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=	, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <title>Github-Wars</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <img src="./img/logo.png" alt="" class="logo" />
+        <h1 class="title">Github Wars</h1>
+      </header>
+      <div class="battle-container">
+        <div class="box-container" id="boxfighter1">
+          <div class="box-fighter red">
+            <input type="text" class="input-battle" id="input-battle1" placeholder="Entre com seu Lutador !">
+          </div>
+          <div class="box-fighter card__face--back">
+              <div class="trofel">
+                <img src="./img/trofel.png" alt="">
+              </div>
+              <img src="./img/profile.png" class="" id="avatar1" alt="">
+              <table class="table-info">
+                <tr>
+                  <th>Critério</th>
+                  <th>Qnt.</th>
+                  <th>Total</th>
+                </tr>
+                <tr>
+                  <td>Public repo</td>
+                  <td id="qtd-public-repo1">qtd repo</td>
+                  <td id="public-repo1">t public</td>
+                </tr>
+                <tr>
+                  <td>Public gists</td>
+                  <td id="qtd-gists1">qtd gist</td>
+                  <td id="public-gists1">t gist</td>
+                </tr>
+                <tr>
+                  <td>Followers</td>
+                  <td id="qtd-fallowers1">qtd fallowers</td>
+                  <td id="fallowers1">t fallowers</td>
+                </tr>
+                <tr>
+                  <td>following</td>
+                  <td id="qtd-following1">teste</td>
+                  <td id="following1">teste</td>
+                </tr>
+                <tr>
+                  <td>starred</td>
+                  <td id="qtd-starred1">teste</td>
+                  <td id="starred1">teste</td>
+                </tr>
+              </table>
+              <h2 class="total-text">total:<span id="total1">500</span></h2>
+          </div>
+        </div>
+        <div class="action">
+          <img src="./img/vs.png" alt=""> 
+          <button class="fight-button" id="fight-button">Fight!</button>
+        </div>
+        <div class="box-container" id="boxfighter2">
+          <div class="box-fighter">
+            <input type="text" class="input-battle" id="input-battle2" placeholder="Entre com seu Lutador !">
+          </div>
+          <div class="box-fighter card__face--back">
+              <div class="trofel">
+                <img src="./img/trofel.png" alt="">
+              </div>
+              <img src="./img/profile.png" id="avatar2" class="" alt="">
+              <table class="table-info">
+                  <tr>
+                    <th>Critério</th>
+                    <th>Qnt.</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr>
+                    <td>Public repo</td>
+                    <td id="qtd-public-repo2">qtd repo</td>
+                    <td id="public-repo2">t public</td>
+                  </tr>
+                  <tr>
+                    <td>Public gists</td>
+                    <td id="qtd-gists2">qtd gist</td>
+                    <td id="public-gists2">t gist</td>
+                  </tr>
+                  <tr>
+                    <td>Followers</td>
+                    <td id="qtd-fallowers2">qtd fallowers</td>
+                    <td id="fallowers2">t fallowers</td>
+                  </tr>
+                  <tr>
+                    <td>following</td>
+                    <td id="qtd-following2">teste</td>
+                    <td id="following2">teste</td>
+                  </tr>
+                  <tr>
+                    <td>starred</td>
+                    <td id="qtd-starred2">teste</td>
+                    <td id="starred2">teste</td>
+                  </tr>
+                </table>
+                <h2 class="total-text">total:<span id="total2">500</span></h2>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    var button = document.querySelector('#fight-button');
+    var fighter = document.querySelector('#boxfighter1');
+    var fighter2 = document.querySelector('#boxfighter2');
+    button.addEventListener( 'click', function() {
+      fighter.classList.toggle('is-flipped');
+      fighter2.classList.toggle('is-flipped');
+    });
+  </script>
+</html>
