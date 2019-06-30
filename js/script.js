@@ -1,12 +1,10 @@
 const GIT_URL = "https://api.github.com/users/";
 
-const PESO = {  'public_repos': 20,
+const PESO = {'public_repos': 20,
               'public_gists': 5,
               'followers': 10,
               'following': 5,
               'starred': 10};
-
-const user = "Jay-Rad";
 
 function getGitData(complemento) {
   let promise = new Promise((resolve,reject)=>{
@@ -18,19 +16,33 @@ function getGitData(complemento) {
   return promise;
 }
 
-function getUserData(user, side) {
+function getUserData(user1, user2) {
 
-  let promise = getGitData(`${user}/starred`);
+  let promise = getGitData(`${user1}/starred`);
+  let promise2 = getGitData(`${user1}`);
 
-  let promise2 = getGitData(`${user}`);
+  let promise3 = getGitData(`${user2}/starred`);
+  let promise4 = getGitData(`${user2}`);
 
-  Promise.all([promise, promise2])
+  Promise.all([promise, promise2, promise3, promise4])
   .then(datas => {
     let starred = datas[0].reduce((soma, data)=>{
-          return soma + data.stargazers_count;
-      },0)
+        return soma + data.stargazers_count;
+    },0);
 
-    let {public_repos, public_gists, followers, following, avatar_url} = datas[1];
+    let starred2 = datas[2].reduce((soma, data)=>{
+        return soma + data.stargazers_count;
+    },0);
+
+    let total1 = setResultados(starred, datas[1], 1);
+    let total2 = setResultados(starred2, datas[3], 2);
+
+    setWinner(total1, total2)  
+  });
+}
+
+function setResultados(starred, data, side) {
+    let {public_repos, public_gists, followers, following, avatar_url} = data;
     let total = (starred*PESO['starred'] + public_repos*PESO['public_repos'] + public_gists*PESO['public_gists'] + followers*PESO['followers'] + following*PESO['following']);
 
     // qtd
@@ -48,15 +60,21 @@ function getUserData(user, side) {
     document.getElementById(`starred${side}`).innerHTML = starred * PESO['starred'];
     document.getElementById(`total${side}`).innerHTML = total;
     document.getElementById(`avatar${side}`).src = avatar_url;
-  });
 
+    return total;
 }
 
-function getWinner() {
-  let total1 = document.getElementById('total1').value;
-  let total2 = document.getElementById('total2').value;
+function setWinner(total1, total2) {
+    let imgTrofel1 = document.getElementById('img-trofel1');
+    let imgTrofel2 = document.getElementById('img-trofel2');
 
-
+    if(total1 > total2) {
+        console.log('total1');
+    } else if(total1 === total2) {
+        console.log('dois');
+    } else {
+        console.log('total2 ');
+    }
 }
 
 
@@ -65,6 +83,5 @@ fightButton.addEventListener('click', function() {
 	let inputBattle1 = document.getElementById('input-battle1').value;
 	let inputBattle2 = document.getElementById('input-battle2').value;
 
-    getUserData(inputBattle1, 1);
-    getUserData(inputBattle2, 2);
+    getUserData(inputBattle1, inputBattle2);
 });
