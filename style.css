@@ -271,6 +271,7 @@ header .title {
   right: -5%;
 }
 .card__face--back .trofel img {
+  display: none;
   width: 20%;;
   float: right;
 }

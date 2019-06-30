@@ -18,14 +18,15 @@ function getGitData(complemento) {
 
 function getUserData(user1, user2) {
 
-  let promise = getGitData(`${user1}/starred`);
+  let promise = getGitData(`${user1}/repos`);
   let promise2 = getGitData(`${user1}`);
 
-  let promise3 = getGitData(`${user2}/starred`);
+  let promise3 = getGitData(`${user2}/repos`);
   let promise4 = getGitData(`${user2}`);
 
   Promise.all([promise, promise2, promise3, promise4])
   .then(datas => {
+    teste = datas[0];
     let starred = datas[0].reduce((soma, data)=>{
         return soma + data.stargazers_count;
     },0);
@@ -68,15 +69,21 @@ function setWinner(total1, total2) {
     let imgTrofel1 = document.getElementById('img-trofel1');
     let imgTrofel2 = document.getElementById('img-trofel2');
 
+    imgTrofel1.style.display = 'none';
+    imgTrofel1.style.display = 'none';
+
     if(total1 > total2) {
-        console.log('total1');
+        // subir trofél 1
+        imgTrofel1.style.display = 'block';
     } else if(total1 === total2) {
-        console.log('dois');
+        // empate
+        imgTrofel1.style.display = 'block';
+        imgTrofel2.style.display = 'block';
     } else {
-        console.log('total2 ');
+        // subir trofél 2
+        imgTrofel2.style.display = 'block';
     }
 }
-
 
 let fightButton = document.getElementById('fight-button');
 fightButton.addEventListener('click', function() {
